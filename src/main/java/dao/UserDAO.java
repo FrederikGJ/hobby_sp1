@@ -3,7 +3,11 @@ package dao;
 import config.HibernateConfig;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.TypedQuery;
 import model.User;
+import model.Zipcode;
+
+import java.util.List;
 
 public class UserDAO {
     private static EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
@@ -46,5 +50,15 @@ public class UserDAO {
                 em.getTransaction().commit();
             }
         }
+
+        public List<User> getUsersByZip (Integer zipID){
+        try (EntityManager em = emf.createEntityManager()) {
+            TypedQuery<User> query = (TypedQuery<User>) em.createQuery("SELECT u from User u WHERE u.address.zipcode = " +zipID);
+            return query.getResultList();
+        }
+
+        }
+
+
 
 }

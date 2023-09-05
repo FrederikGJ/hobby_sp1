@@ -32,5 +32,8 @@ public class Zipcode {
     @OneToMany (mappedBy = "zipcode") //cascading? hvad slettes hvis zipcode slettes?
     private Set<Address> addresses = new HashSet<>();
 
-
+    public Zipcode(int zipcode, String cityName) {
+        this.zipcode = zipcode;
+        this.cityName = cityName;
+    }
 }
