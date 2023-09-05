@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,4 +21,12 @@ public class UserInfo {
 
     @Column (name = "user_name", length = 100)
     private String userName;
+
+    // One userName can have multiple ways of contact ( private tlf, work tlf)
+    @OneToMany
+    private List<Contact> contactList;
+
+    public UserInfo(String userName) {
+        this.userName = userName;
+    }
 }

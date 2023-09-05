@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,11 +21,43 @@ public class User {
     @Column(name = "user_id", nullable = false)
     private Integer userId;
 
-    @ManyToOne
+
+   /* @ManyToOne
     @Column (name = "address_id", nullable = false)
     private Address address;
 
     @Column (name = "user_info_id", nullable = false)
     private Integer  userInfoId;
+*/
+    // one User have one userName
+   @OneToOne
+    private  UserInfo userInfo;
+
+   // multiple Users can have multiple hobbies
+   @ManyToMany(mappedBy = "users")
+    private Set<Hobby> hobbies = new HashSet<>();
+
+   // multiple Users can live on one Address
+   @ManyToOne
+    private Address address;
+
+    public User(UserInfo userInfo, Set<Hobby> hobbies, Address address) {
+        this.userInfo = userInfo;
+        this.hobbies = hobbies;
+        this.address = address;
+    }
+
+    public void addUserInfo(UserInfo userInfo) {
+        userInfo.setContactList(userInfo.getContactList());
+        }
+
+    public void addHobbies(Hobby hobby)
+    {
+        hobbies.add(hobby);
+        if (hobby != null)
+        {
+            hobby.getUsers().add(this);
+        }
+    }
 
 }

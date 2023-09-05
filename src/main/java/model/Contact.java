@@ -18,7 +18,7 @@ public class Contact {
     @Column(name = "phonenumber", nullable = false)
     private int phonenumber;
 
-    @Column (name = "user_info_id", nullable = false)
-    private int userInfoId;
-
+    public Contact(int phonenumber) {
+        this.phonenumber = phonenumber;
+    }
 }

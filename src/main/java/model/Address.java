@@ -27,13 +27,22 @@ public class Address {
     @Column (name = "address_number", nullable = false)
     private int addressNumber;
 
-    @ManyToOne
+
+    /*@ManyToOne
     @Column (name = "zipcode", nullable = false)
     private Zipcode zipcode;
 
     @OneToMany (mappedBy = "address")
     private Set<User> users = new HashSet<>();
+*/
+// Multiple Addresses can have the same zipcode and city infomation
+    @ManyToOne
+    private Zipcode zipcode;
 
 
+    public Address(String addressName, int addressNumber) {
+        this.addressName = addressName;
+        this.addressNumber = addressNumber;
 
+    }
 }
