@@ -6,9 +6,9 @@ import jakarta.persistence.EntityManagerFactory;
 import model.User;
 
 public class UserDAO {
-    private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    private static EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
 
-    private UserDAO() {}
+    public UserDAO() {}
 
     public User createUser(User user) {
         try (EntityManager em = emf.createEntityManager()) {
@@ -46,4 +46,5 @@ public class UserDAO {
                 em.getTransaction().commit();
             }
         }
+
 }
