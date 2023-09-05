@@ -16,12 +16,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false)
-    private int userId;
+    private Integer userId;
 
+    @ManyToOne
     @Column (name = "address_id", nullable = false)
-    private int addressId;
+    private Address address;
 
     @Column (name = "user_info_id", nullable = false)
-    private int  userInfoId;
+    private Integer  userInfoId;
 
 }
