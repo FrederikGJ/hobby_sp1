@@ -22,9 +22,9 @@ public class Contact {
     @JoinColumn(name ="user_info_id") // foreign key column
     private UserInfo userInfo;
 
-    public Contact(int phonenumber, UserInfo userInfo) {
+    public Contact(int phonenumber) {
         this.phonenumber = phonenumber;
-        this.userInfo = userInfo;
+
     }
 
 }

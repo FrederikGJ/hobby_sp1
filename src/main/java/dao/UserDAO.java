@@ -3,7 +3,7 @@ package dao;
 import config.HibernateConfig;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import model.User;
+import model.Users;
 
 public class UserDAO {
     private  EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
@@ -18,38 +18,38 @@ public class UserDAO {
         return userDAO;
     }
 
-    public User createUser(User user) {
+    public Users createUser(Users users) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            em.persist(user);
+            em.persist(users);
             em.getTransaction().commit();
             em.close();
-            return user;
+            return users;
         }
     }
-        public User readUser(int userId){
+        public Users readUser(int userId){
             try(EntityManager em = emf.createEntityManager()){
-                User readUser = em.find (User.class, userId);
-                return readUser;
+                Users readUsers = em.find (Users.class, userId);
+                return readUsers;
             }
         }
 
-        public User updateUser(User user){
+        public Users updateUser(Users users){
             try (EntityManager em = emf.createEntityManager()){
                 em.getTransaction().begin();
-                User updatedUser = em.merge(user);
+                Users updatedUsers = em.merge(users);
                 em.getTransaction().commit();
                 em.close();
-                return updatedUser;
+                return updatedUsers;
             }
         }
 
         public void deleteUser(int userId) {
             try(EntityManager em = emf.createEntityManager()){
                 em.getTransaction().begin();
-                User user = readUser(userId);
-                if(user != null){
-                    em.remove(user);
+                Users users = readUser(userId);
+                if(users != null){
+                    em.remove(users);
                 }
                 em.getTransaction().commit();
             }
