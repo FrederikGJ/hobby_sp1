@@ -26,4 +26,11 @@ public class Zipcode {
 
     @Column (name = "municipality_name", length = 100)
     private String municipalityName;
+
+    public Zipcode(int zipcode, String cityName, String regionName, String municipalityName) {
+        this.zipcode = zipcode;
+        this.cityName = cityName;
+        this.regionName = regionName;
+        this.municipalityName = municipalityName;
+    }
 }

@@ -34,8 +34,10 @@ public class Hobby{
     @ManyToMany
     private Set<User> users = new HashSet<>();
 
-    public Hobby(String hobbyName, Category category) {
+    public Hobby(String hobbyName, Category category, Set<User> users) {
         this.hobbyName = hobbyName;
         this.category = category;
+        this.users = users;
     }
+
 }

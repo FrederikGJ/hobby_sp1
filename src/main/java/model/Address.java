@@ -25,7 +25,8 @@ public class Address {
     private int addressNumber;
 
     // Multiple Addresses can have the same zipcode and city infomation
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name="zip")
     private Zipcode zipcode;
 
     public Address(String addressName, int addressNumber) {

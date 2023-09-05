@@ -21,8 +21,9 @@ public class User {
     @Column(name = "user_id", nullable = false)
     private int userId;
 
-    // one User have one userName
-   @OneToOne
+    // one User only have one userName
+   @OneToOne (mappedBy = "user", cascade = CascadeType.ALL)
+   // bidicrectional -> userInfo is owner. cascade all = delete User also delets UserInfo
     private  UserInfo userInfo;
 
    // multiple Users can have multiple hobbies
@@ -31,6 +32,7 @@ public class User {
 
    // multiple Users can live on one Address
    @ManyToOne
+   @JoinColumn(name = "address_id") // foreign key
     private Address address;
 
     public User(UserInfo userInfo, Set<Hobby> hobbies, Address address) {
@@ -40,7 +42,7 @@ public class User {
     }
 
     public void addUserInfo(UserInfo userInfo) {
-        userInfo.setContactList(userInfo.getContactList());
+        userInfo.setUserName(userInfo.getUserName());
         }
 
     public void addHobbies(Hobby hobby)

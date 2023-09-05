@@ -6,9 +6,17 @@ import jakarta.persistence.EntityManagerFactory;
 import model.User;
 
 public class UserDAO {
-    private static EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    private  EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
 
     public UserDAO() {}
+    private static UserDAO userDAO = null;
+
+    public static UserDAO getInstance() {
+        if (userDAO == null) {
+            userDAO = new UserDAO();
+        }
+        return userDAO;
+    }
 
     public User createUser(User user) {
         try (EntityManager em = emf.createEntityManager()) {
@@ -21,7 +29,7 @@ public class UserDAO {
     }
         public User readUser(int userId){
             try(EntityManager em = emf.createEntityManager()){
-                User readUser= em.find (User.class, userId);
+                User readUser = em.find (User.class, userId);
                 return readUser;
             }
         }
@@ -46,5 +54,13 @@ public class UserDAO {
                 em.getTransaction().commit();
             }
         }
+
+//        public User getAllUserInformationByPhonenumber () {
+//        try(EntityManager em = emf.createEntityManager()) {
+//            TypedQuery<User> query = em.createQuery("SELECT u FROM User ")
+//
+//        }
+//        }
+
 
 }

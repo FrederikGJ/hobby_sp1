@@ -18,7 +18,13 @@ public class Contact {
     @Column(name = "phonenumber", nullable = false)
     private int phonenumber;
 
-    public Contact(int phonenumber) {
+    @ManyToOne
+    @JoinColumn(name ="user_info_id") // foreign key column
+    private UserInfo userInfo;
+
+    public Contact(int phonenumber, UserInfo userInfo) {
         this.phonenumber = phonenumber;
+        this.userInfo = userInfo;
     }
+
 }
