@@ -16,7 +16,7 @@ public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "phonenumber", nullable = false)
-    private int phoneumber;
+    private int phonenumber;
 
     @Column (name = "user_info_id", nullable = false)
     private int userInfoId;

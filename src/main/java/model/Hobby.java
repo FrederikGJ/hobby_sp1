@@ -11,15 +11,26 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Hobby {
+public class Hobby{
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "hobby_id", nullable = false)
+    @Column(name = "id", nullable = false)
     private int hobbyId;
 
-   // private Category category;
+    @Column(name = "name", nullable = false)
+    private String hobbyName;
+
+    @Enumerated (EnumType.STRING)
+    @Column(name = "category", nullable = false)
+    private Category category;
+
+    //Slettet Type fra Jons data og erstattet den med category, da alle var var "General"
 
 
+    public Hobby(String hobbyName, Category category) {
+        this.hobbyName = hobbyName;
+        this.category = category;
+    }
 }
