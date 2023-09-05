@@ -24,6 +24,13 @@ public class Address {
     @Column (name = "address_number", nullable = false)
     private int addressNumber;
 
+    // Multiple Addresses can have the same zipcode and city infomation
+    @ManyToOne
+    private Zipcode zipcode;
 
+    public Address(String addressName, int addressNumber) {
+        this.addressName = addressName;
+        this.addressNumber = addressNumber;
 
+    }
 }
