@@ -3,8 +3,11 @@ package dao;
 import config.HibernateConfig;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.TypedQuery;
 import model.Hobby;
+import model.Users;
 
+import java.util.List;
 public class HobbyDAO {
 
     private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
@@ -19,7 +22,6 @@ public class HobbyDAO {
         }
         return hobbyDAO;
     }
-
 
     public Hobby createHobby(Hobby hobby) {
         try (EntityManager em = emf.createEntityManager()) {
@@ -55,6 +57,40 @@ public class HobbyDAO {
                 em.remove(hobby);
             }
             em.getTransaction().commit();
+        }
+    }
+
+    public int getNumberOfPeopleWithHobby (String hobby) {
+        try(EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Users> users = em.createQuery("SELECT u FROM Users u JOIN u.hobbies h WHERE h.hobbyName = :hobby", Users.class);
+            users.setParameter("hobby", hobby);
+            List<Users> allUsers = users.getResultList();
+            int count = 0;
+            for(Users u : allUsers) {
+                count = count + 1;
+            }
+            System.out.println(count);
+            return count;
+        }
+    }
+
+    public List<Hobby> getAllHobbies () {
+        try(EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Hobby> hobbies = em.createQuery("SELECT h FROM Hobby h", Hobby.class);
+            return hobbies.getResultList();
+        }
+    }
+
+    public int getNumberOfPeopleInterested(String hobby) {
+        try(EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Hobby> hobbies = em.createQuery("SELECT h FROM Hobby h WHERE h.hobbyName = :hobby", Hobby.class);
+            hobbies.setParameter("hobby", hobby);
+            List<Hobby> allHobbies = hobbies.getResultList();
+            int count = 0;
+            for(Hobby h : allHobbies) {
+                count = count + 1;
+            }
+            return count;
         }
     }
 }

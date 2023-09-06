@@ -6,7 +6,6 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
 import model.Users;
 import model.Zipcode;
-
 import java.util.List;
 
 public class UserDAO {
@@ -32,7 +31,7 @@ public class UserDAO {
         }
     }
         public Users readUser(int userId){
-            try(EntityManager em = emf.createEntityManager()){
+            try (EntityManager em = emf.createEntityManager()){
                 Users readUsers = em.find (Users.class, userId);
                 return readUsers;
             }
@@ -52,7 +51,7 @@ public class UserDAO {
             try(EntityManager em = emf.createEntityManager()){
                 em.getTransaction().begin();
                 Users users = readUser(userId);
-                if(users != null){
+                if(users != null) {
                     em.remove(users);
                 }
                 em.getTransaction().commit();
@@ -72,11 +71,22 @@ public class UserDAO {
         }
 
     }
-
-       /* public Users getAllUserInformationByPhonenumber () {
+    public List<Users> getUsersWithHobby (String hobby) {
         try(EntityManager em = emf.createEntityManager()) {
-            TypedQuery<Users> query = em.createQuery("SELECT u FROM User  ")
-
+            TypedQuery<Users> users = em.createQuery("SELECT u FROM Users u JOIN u.hobbies h WHERE h.hobbyName = :hobby", Users.class);
+            users.setParameter("hobby", hobby);
+            System.out.println(users.getResultList());
+            return users.getResultList();
         }
-        }*/
+    }
+
+    public Users getUserByPhone(int phonenumber) {
+        try(EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Users> users = em.createQuery("SELECT u FROM Users u JOIN Contact c ON c.userInfo = u.userInfo WHERE c.phonenumber = :phonenumber", Users.class);
+            users.setParameter("phonenumber", phonenumber);
+            System.out.println(users.getResultList());
+            Users users1 = users.getSingleResult();
+            return users1;
+        }
+    }
 }

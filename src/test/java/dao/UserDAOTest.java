@@ -68,6 +68,17 @@ class UserDAOTest {
         assertNull(deletedUser);
 
     }
+    @Test
+    void getUsersWithHobby() {
+        int result = userDAO.getUsersWithHobby("Sove").size();
+        assertEquals(1, result);
+    }
+
+    @Test
+    void getUserByPhone() {
+        Users user = userDAO.getUserByPhone(30294785);
+        assertEquals(user.getUserInfo().getUserName(), "Signe");
+    }
 
 
 }

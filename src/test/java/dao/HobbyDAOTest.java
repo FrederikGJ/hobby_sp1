@@ -76,4 +76,16 @@ class HobbyDAOTest {
         Hobby deletedHobby = hobbyDAO.readHobby(createdHobby.getHobbyId());
         assertNull(deletedHobby);
     }
+
+    @Test
+    void getNumberOfPeopleWithHobby() {
+        int result = hobbyDAO.getNumberOfPeopleWithHobby("Svømning");
+        assertEquals(3, result);
+    }
+
+    @Test
+    void getNumberOfPeopleInterested() {
+        int result = hobbyDAO.getNumberOfPeopleInterested("Sove");
+        assertEquals(1, result);
+    }
 }
