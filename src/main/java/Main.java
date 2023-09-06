@@ -22,6 +22,9 @@ public class Main {
         userDAO.updateUser(u1);
         System.out.println(u1);
 
+        System.out.println(userDAO.getAllUsersInCity(z1));
+        System.out.println(userDAO.getAllZip());
+
 
     }
 

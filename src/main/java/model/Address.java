@@ -27,7 +27,7 @@ public class Address {
     private int addressNumber;
 
     // Multiple Addresses can have the same zipcode and city infomation
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="zip")
     private Zipcode zipcode;
 
@@ -50,6 +50,7 @@ public class Address {
     }
 
     public void addZipcode(Zipcode zipcode) {
-        // add zipcode to Address
+             this.zipcode = zipcode;
+
     }
 }

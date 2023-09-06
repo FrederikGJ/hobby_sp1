@@ -65,6 +65,14 @@ public class UserDAO {
         }
 
     }
+    public List<Users> getAllUsersInCity (Zipcode zipcode){
+        try (EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Users> query = (TypedQuery<Users>) em.createQuery("SELECT u from Users u where u.address.zipcode = :zipcode", Users.class );
+            query.setParameter("zipcode", zipcode);
+            return query.getResultList();
+        }
+
+    }
 
 //        public User getAllUserInformationByPhonenumber () {
 //        try(EntityManager em = emf.createEntityManager()) {
