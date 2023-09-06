@@ -35,10 +35,6 @@ public class Address {
     @OneToMany
     private Set<Users> users = new HashSet<>();
 
-    public Set<Users> getUsers() {
-        return users;
-    }
-
     public void setUsers(Users user) {
         users.add(user);
     }
@@ -51,5 +47,6 @@ public class Address {
 
     public void addZipcode(Zipcode zipcode) {
         this.zipcode = zipcode;
+
     }
 }
