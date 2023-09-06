@@ -65,11 +65,10 @@ public class UserDAO {
         }
     }
 
-        /*public Users getAllUserInformationByPhonenumber () {
+       /* public Users getAllUserInformationByPhonenumber () {
         try(EntityManager em = emf.createEntityManager()) {
-            TypedQuery<Users> query = em.createQuery("SELECT u FROM User ")
+            TypedQuery<Users> query = em.createQuery("SELECT u FROM User  ")
 
         }
         }*/
-
 }

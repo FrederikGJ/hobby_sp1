@@ -21,12 +21,12 @@ public class Hobby{
     @Column(name = "id", nullable = false)
     private int hobbyId;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String hobbyName;
 
    // multiple Hobbies can be under the same Category
     @Enumerated (EnumType.STRING) // values is stored as String in DB
-    @Column(name = "category", nullable = false)
+    @Column(name = "category")
     private Category category;
 
     // multiple Users can have multiple Hobbies
@@ -38,5 +38,4 @@ public class Hobby{
         this.category = category;
 
     }
-
 }
