@@ -34,4 +34,8 @@ public class Address {
         this.addressNumber = addressNumber;
 
     }
+
+    public void addZipcode(Zipcode zipcode) {
+        // add zipcode to Address
+    }
 }

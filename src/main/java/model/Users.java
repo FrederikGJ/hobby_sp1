@@ -22,36 +22,36 @@ public class Users {
     private int userId;
 
     // one User only have one userName
-   @OneToOne (mappedBy = "users", cascade = CascadeType.ALL)
-   // bidicrectional -> userInfo is owner. cascade all = delete User also delets UserInfo
-    private  UserInfo userInfo;
+    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
+// bidicrectional -> userInfo is owner. cascade all = delete User also delets UserInfo
+    private UserInfo userInfo;
 
-   // multiple Users can have multiple hobbies
-   @ManyToMany
+    // multiple Users can have multiple hobbies
+    @ManyToMany
     private Set<Hobby> hobbies = new HashSet<>();
 
-   // multiple Users can live on one Address
-   @ManyToOne
-   @JoinColumn(name = "address_id") // foreign key
+    // multiple Users can live on one Address
+    @ManyToOne
+    @JoinColumn(name = "address_id") // foreign key
     private Address address;
 
-    public Users(UserInfo userInfo, Set<Hobby> hobbies, Address address) {
-        this.userInfo = userInfo;
-        this.hobbies = hobbies;
-        this.address = address;
-    }
 
     public void addUserInfo(UserInfo userInfo) {
-        userInfo.setUserName(userInfo.getUserName());
+        if (userInfo != null) {
+            userInfo.setUsers(this);
         }
+    }
 
-    public void addHobbies(Hobby hobby)
-    {
+    public void addHobbies(Hobby hobby) {
         hobbies.add(hobby);
-        if (hobby != null)
-        {
+        if (hobby != null) {
             hobby.getUsers().add(this);
         }
     }
 
+    public void addAddress(Address addresss) {
+        // Add address til User
+
+
+    }
 }

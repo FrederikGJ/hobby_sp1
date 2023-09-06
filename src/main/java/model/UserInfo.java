@@ -35,9 +35,9 @@ public class UserInfo {
     }
 
     public void addContact(Contact contact) {
-        contactList.add(contact);
+        this.contactList.add(contact);
         if(contact != null){
-            contact.setPhonenumber(contact.getPhonenumber());
+            contact.setUserInfo(this);
         }
 
     }
