@@ -8,8 +8,18 @@ import model.Hobby;
 public class HobbyDAO {
 
     private EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    private static HobbyDAO hobbyDAO = null;
+
 
     private HobbyDAO() {}
+
+    public static HobbyDAO getInstance() {
+        if (hobbyDAO == null) {
+            hobbyDAO = new HobbyDAO();
+        }
+        return hobbyDAO;
+    }
+
 
     public Hobby createHobby(Hobby hobby) {
         try (EntityManager em = emf.createEntityManager()) {

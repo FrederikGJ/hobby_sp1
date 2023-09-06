@@ -11,9 +11,9 @@ import java.util.List;
 
 public class UserDAO {
     private  EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    private static UserDAO userDAO = null;
 
     public UserDAO() {}
-    private static UserDAO userDAO = null;
 
     public static UserDAO getInstance() {
         if (userDAO == null) {
@@ -63,7 +63,6 @@ public class UserDAO {
             TypedQuery<Zipcode> query = (TypedQuery<Zipcode>) em.createQuery("SELECT u.zipcode, u.cityName from Zipcode u");
             return query.getResultList();
         }
-
     }
     public List<Users> getAllUsersInCity (Zipcode zipcode){
         try (EntityManager em = emf.createEntityManager()) {
@@ -74,12 +73,10 @@ public class UserDAO {
 
     }
 
-//        public User getAllUserInformationByPhonenumber () {
-//        try(EntityManager em = emf.createEntityManager()) {
-//            TypedQuery<User> query = em.createQuery("SELECT u FROM User ")
-//
-//        }
-//        }
+       /* public Users getAllUserInformationByPhonenumber () {
+        try(EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Users> query = em.createQuery("SELECT u FROM User  ")
 
-
+        }
+        }*/
 }
