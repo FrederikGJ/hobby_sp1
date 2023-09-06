@@ -12,7 +12,6 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
 public class Hobby{
 
@@ -31,11 +30,13 @@ public class Hobby{
     private Category category;
 
     // multiple Users can have multiple Hobbies
-    @ManyToMany
-    private Set<User> users = new HashSet<>();
+    @ManyToMany (mappedBy = "hobbies")
+    private Set<Users> users = new HashSet<>();
 
     public Hobby(String hobbyName, Category category) {
         this.hobbyName = hobbyName;
         this.category = category;
+
     }
+
 }

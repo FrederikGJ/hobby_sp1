@@ -12,11 +12,11 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
 public class Zipcode {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "zip", nullable = false)
     private int zipcode;
 

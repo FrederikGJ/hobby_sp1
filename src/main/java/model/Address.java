@@ -19,7 +19,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "address_id", nullable = false)
-    private Integer addressId;
+    private int addressId;
 
     @Column (name = "address_name", length = 100)
     private String addressName;
@@ -27,22 +27,30 @@ public class Address {
     @Column (name = "address_number", nullable = false)
     private int addressNumber;
 
-
-    /*@ManyToOne
-    @Column (name = "zipcode", nullable = false)
+    // Multiple Addresses can have the same zipcode and city infomation
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name="zip")
     private Zipcode zipcode;
 
-    @OneToMany (mappedBy = "address")
-    private Set<User> users = new HashSet<>();
-*/
-// Multiple Addresses can have the same zipcode and city infomation
-    @ManyToOne
-    private Zipcode zipcode;
+    //multible users at live at the same address
+    @OneToMany
+    private Set<Users> users = new HashSet<>();
 
+    public Set<Users> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users user) {
+        users.add(user);
+    }
 
     public Address(String addressName, int addressNumber) {
         this.addressName = addressName;
         this.addressNumber = addressNumber;
 
+    }
+
+    public void addZipcode(Zipcode zipcode) {
+        // add zipcode to Address
     }
 }

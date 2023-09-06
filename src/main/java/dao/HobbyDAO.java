@@ -4,7 +4,6 @@ import config.HibernateConfig;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import model.Hobby;
-import model.User;
 
 public class HobbyDAO {
 

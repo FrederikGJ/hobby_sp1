@@ -6,27 +6,38 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
 public class UserInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_info_id", nullable = false)
     private int userInfoId;
-
     @Column (name = "user_name", length = 100)
     private String userName;
 
-    // One userName can have multiple ways of contact ( private tlf, work tlf)
-    @OneToMany
-    private List<Contact> contactList;
+    @OneToOne
+   @JoinColumn(name= "user_info_id") //Defines the foreign key column
+    private Users users;
+
+    // One userName can have multiple ways of contact (private tlf, work tlf)
+    @OneToMany (mappedBy = "userInfo", cascade = CascadeType.ALL, orphanRemoval = true)// bidirectional- Contact is owner. cascade = userInfo changes then Contact changes removal = orphaned Contacts are removed
+    private Set<Contact> contactList = new HashSet<>();
 
     public UserInfo(String userName) {
         this.userName = userName;
+    }
+
+    public void addContact(Contact contact) {
+        this.contactList.add(contact);
+        if(contact != null){
+            contact.setUserInfo(this);
+        }
+
     }
 }

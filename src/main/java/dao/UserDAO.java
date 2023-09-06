@@ -3,62 +3,64 @@ package dao;
 import config.HibernateConfig;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.TypedQuery;
-import model.User;
-import model.Zipcode;
-
-import java.util.List;
+import model.Users;
 
 public class UserDAO {
-    private static EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
+    private  EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
 
     public UserDAO() {}
+    private static UserDAO userDAO = null;
 
-    public User createUser(User user) {
+    public static UserDAO getInstance() {
+        if (userDAO == null) {
+            userDAO = new UserDAO();
+        }
+        return userDAO;
+    }
+
+    public Users createUser(Users users) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            em.persist(user);
+            em.persist(users);
             em.getTransaction().commit();
             em.close();
-            return user;
+            return users;
         }
     }
-        public User readUser(int userId){
+        public Users readUser(int userId){
             try(EntityManager em = emf.createEntityManager()){
-                User readUser= em.find (User.class, userId);
-                return readUser;
+                Users readUsers = em.find (Users.class, userId);
+                return readUsers;
             }
         }
 
-        public User updateUser(User user){
+        public Users updateUser(Users users){
             try (EntityManager em = emf.createEntityManager()){
                 em.getTransaction().begin();
-                User updatedUser = em.merge(user);
+                Users updatedUsers = em.merge(users);
                 em.getTransaction().commit();
                 em.close();
-                return updatedUser;
+                return updatedUsers;
             }
         }
 
         public void deleteUser(int userId) {
             try(EntityManager em = emf.createEntityManager()){
                 em.getTransaction().begin();
-                User user = readUser(userId);
-                if(user != null){
-                    em.remove(user);
+                Users users = readUser(userId);
+                if(users != null){
+                    em.remove(users);
                 }
                 em.getTransaction().commit();
             }
         }
 
-        public List<User> getUsersByZip (Integer zipID){
-        try (EntityManager em = emf.createEntityManager()) {
-            TypedQuery<User> query = (TypedQuery<User>) em.createQuery("SELECT u from User u WHERE u.address.zipcode = " +zipID);
-            return query.getResultList();
-        }
-
-        }
-
+//        public User getAllUserInformationByPhonenumber () {
+//        try(EntityManager em = emf.createEntityManager()) {
+//            TypedQuery<User> query = em.createQuery("SELECT u FROM User ")
+//
+//        }
+//        }
 
 
 }
