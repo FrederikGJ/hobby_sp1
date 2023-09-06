@@ -11,16 +11,19 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Zip {
+public class Zipcode {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "zip_id", nullable = false)
-    private int zipId;
-
-    @Column(name = "zipcode", nullable = false)
-
+    @Column(name = "zip", nullable = false)
     private int zipcode;
 
     @Column (name = "city_name", length = 100)
     private String cityName;
+
+    @Column (name = "region_name", length = 100)
+    private String regionName;
+
+    @Column (name = "municipality_name", length = 100)
+    private String municipalityName;
 }

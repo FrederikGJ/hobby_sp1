@@ -23,4 +23,5 @@ public class User {
 
     @Column (name = "user_info_id", nullable = false)
     private int  userInfoId;
+
 }
