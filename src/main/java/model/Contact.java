@@ -13,7 +13,6 @@ import lombok.ToString;
 @Entity
 public class Contact {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "phonenumber", nullable = false)
     private int phonenumber;
 

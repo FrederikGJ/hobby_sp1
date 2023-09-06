@@ -1,3 +1,4 @@
+import dao.HobbyDAO;
 import dao.UserDAO;
 import model.*;
 
@@ -5,6 +6,9 @@ public class Main {
     public static void main(String[] args) {
 
         UserDAO userDAO = UserDAO.getInstance();
+        HobbyDAO hobbyDAO = HobbyDAO.getInstance();
+
+        /*
 
         Users u1 = new Users();
         UserInfo ui1 = new UserInfo("Signe");
@@ -22,6 +26,25 @@ public class Main {
         userDAO.updateUser(u1);
         System.out.println(u1);
 
+
+
+        Users u2 = new Users();
+        UserInfo ui2 = new UserInfo("Natasja");
+        Contact c2 = new Contact(20202020);
+        Hobby h2 = new Hobby("Sove", Category.INDOOR);
+        Address a2 = new Address("Polensgade", 30);
+        Zipcode z2 = new Zipcode(2300, "København", "Hovedstaden", "Københavns kommune");
+
+        userDAO.createUser(u2);
+        u2.addUserInfo(ui2);
+        ui2.addContact(c2);
+        u2.addHobbies(h2);
+        a2.addZipcode(z2);
+        userDAO.updateUser(u2);
+
+         */
+
+        hobbyDAO.getNumberOfPeopleWithHobby("Sove");
     }
 }
 
