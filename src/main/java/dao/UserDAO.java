@@ -4,13 +4,10 @@ import config.HibernateConfig;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import model.Users;
-
 public class UserDAO {
     private  EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
-
     public UserDAO() {}
     private static UserDAO userDAO = null;
-
     public static UserDAO getInstance() {
         if (userDAO == null) {
             userDAO = new UserDAO();
@@ -28,7 +25,7 @@ public class UserDAO {
         }
     }
         public Users readUser(int userId){
-            try(EntityManager em = emf.createEntityManager()){
+            try (EntityManager em = emf.createEntityManager()){
                 Users readUsers = em.find (Users.class, userId);
                 return readUsers;
             }
@@ -48,7 +45,7 @@ public class UserDAO {
             try(EntityManager em = emf.createEntityManager()){
                 em.getTransaction().begin();
                 Users users = readUser(userId);
-                if(users != null){
+                if(users != null) {
                     em.remove(users);
                 }
                 em.getTransaction().commit();
@@ -60,7 +57,6 @@ public class UserDAO {
 //            TypedQuery<User> query = em.createQuery("SELECT u FROM User ")
 //
 //        }
-//        }
-
-
+//
+//    }
 }

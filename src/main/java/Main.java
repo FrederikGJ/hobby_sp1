@@ -22,8 +22,6 @@ public class Main {
         userDAO.updateUser(u1);
         System.out.println(u1);
 
-
     }
-
 }
 
