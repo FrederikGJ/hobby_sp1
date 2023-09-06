@@ -60,9 +60,7 @@ public class Users {
     public String toString() {
         return "Users{" +
                 "userId=" + userId +
-                ", userInfo=" + userInfo +
-                ", hobbies=" + hobbies +
-                ", address=" + address +
+
                 '}';
     }
 }
