@@ -6,7 +6,6 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
 import model.Users;
 import model.Zipcode;
-
 import java.util.List;
 
 public class UserDAO {
@@ -63,12 +62,22 @@ public class UserDAO {
         }
 
     }
+    public List<Users> getUsersWithHobby (String hobby) {
+        try(EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Users> users = em.createQuery("SELECT u FROM Users u JOIN u.hobbies h WHERE h.hobbyName = :hobby", Users.class);
+            users.setParameter("hobby", hobby);
+            System.out.println(users.getResultList());
+            return users.getResultList();
+        }
+    }
 
-//        public User getAllUserInformationByPhonenumber () {
-//        try(EntityManager em = emf.createEntityManager()) {
-//            TypedQuery<User> query = em.createQuery("SELECT u FROM User ")
-//
-//        }
-//
-//    }
+    public Users getUserByPhone(int phonenumber) {
+        try(EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Users> users = em.createQuery("SELECT u FROM Users u JOIN Contact c ON c.userInfo = u.userInfo WHERE c.phonenumber = :phonenumber", Users.class);
+            users.setParameter("phonenumber", phonenumber);
+            System.out.println(users.getResultList());
+            Users users1 = users.getSingleResult();
+            return users1;
+        }
+    }
 }
