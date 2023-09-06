@@ -25,7 +25,7 @@ public class Hobby{
     private String hobbyName;
 
    // multiple Hobbies can be under the same Category
-    @Enumerated (EnumType.STRING)
+    @Enumerated (EnumType.STRING) // values is stored as String in DB
     @Column(name = "category", nullable = false)
     private Category category;
 
