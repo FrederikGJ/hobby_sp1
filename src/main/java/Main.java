@@ -1,3 +1,4 @@
+import dao.HobbyDAO;
 import dao.UserDAO;
 import model.*;
 
