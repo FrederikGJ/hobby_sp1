@@ -56,5 +56,13 @@ public class Users {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "Users{" +
+                "userId=" + userId +
+                ", userInfo=" + userInfo +
+                ", hobbies=" + hobbies +
+                ", address=" + address +
+                '}';
+    }
 }
