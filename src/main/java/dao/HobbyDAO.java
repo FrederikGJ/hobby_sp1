@@ -66,6 +66,7 @@ public class HobbyDAO {
             for(Users u : allUsers) {
                 count = count + 1;
             }
+            System.out.println(count);
             return count;
         }
     }

@@ -44,7 +44,6 @@ public class Main {
 
          */
 
-        hobbyDAO.getNumberOfPeopleWithHobby("Sove");
     }
 }
 
