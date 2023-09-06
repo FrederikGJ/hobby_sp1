@@ -21,6 +21,7 @@ public class Main {
         a1.addZipcode(z1);
         userDAO.updateUser(u1);
         System.out.println(u1);
+        userDAO.deleteUser(10);
 
 
     }
