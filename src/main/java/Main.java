@@ -11,8 +11,8 @@ public class Main {
         HobbyDAO hobbyDAO = HobbyDAO.getInstance();
 
         Users u1 = new Users();
-        UserInfo ui1 = new UserInfo("Signe");
-        Contact c1 = new Contact(30294785);
+        UserInfo ui1 = new UserInfo("opop");
+        Contact c1 = new Contact(99002200);
         Hobby h1 = new Hobby("Svømning", Category.INDOOR);
         Address a1 = new Address("Mosevej", 3);
         Zipcode z1 = new Zipcode(3400, "Hillerød", "Region Nordsjælland", "Hillerød Kommune");
@@ -47,7 +47,7 @@ public class Main {
 
         System.out.println(userDAO.getAllContacts());
 
-        System.out.println("looki look   " + userDAO.getUserContacts(92));
+        System.out.println(" look at this number:  " + userDAO.getUserContacts(98));
 
 
 
