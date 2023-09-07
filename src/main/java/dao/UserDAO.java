@@ -4,6 +4,7 @@ import config.HibernateConfig;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
+import model.Contact;
 import model.Users;
 import model.Zipcode;
 import java.util.List;
@@ -78,6 +79,15 @@ public class UserDAO {
             System.out.println(users.getResultList());
             Users users1 = users.getSingleResult();
             return users1;
+        }
+    }
+
+    public Integer getPhoneFromUser(Integer id) {
+        try(EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Contact> phone = em.createQuery("SELECT c FROM Contact c JOIN c.userInfo u where u.users.userId = :id", Contact.class);
+            phone.setParameter("id", id);
+            System.out.println(phone.getSingleResult().getPhonenumber());
+            return phone.getSingleResult().getPhonenumber();
         }
     }
 }
