@@ -45,6 +45,10 @@ public class Main {
         a2.addZipcode(z2);
         userDAO.updateUser(u2);
 
+        System.out.println(userDAO.getAllZip());
+
+        System.out.println(userDAO.getAllUsersInCity(z2));
+
     }
 }
 

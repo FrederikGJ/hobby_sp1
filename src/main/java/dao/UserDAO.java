@@ -59,7 +59,7 @@ public class UserDAO {
         }
     public List<Zipcode> getAllZip (){
         try (EntityManager em = emf.createEntityManager()) {
-            TypedQuery<Zipcode> query = (TypedQuery<Zipcode>) em.createQuery("SELECT u.zipcode, u.cityName from Zipcode u");
+            TypedQuery<Zipcode> query = (TypedQuery<Zipcode>) em.createQuery("SELECT z from Zipcode z", Zipcode.class);
             return query.getResultList();
         }
     }
