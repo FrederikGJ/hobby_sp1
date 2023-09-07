@@ -21,7 +21,7 @@ public class UserInfo {
     private String userName;
 
     @OneToOne
-   @JoinColumn(name= "user_info_id") //Defines the foreign key column
+   //@JoinColumn(name= "user_info_id") //Defines the foreign key column
     private Users users;
 
     // One userName can have multiple ways of contact (private tlf, work tlf)

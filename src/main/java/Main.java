@@ -22,19 +22,10 @@ public class Main {
         u1.addAddress(a1); // add Address to User
         a1.addZipcode(z1); // add Zipcode to Address
         userDAO.updateUser(u1); // update the User so the changes are merges to the DB
-        System.out.println(u1);
-        userDAO.deleteUser(10); // User is deleted
-
+        //userDAO.deleteUser(10); // User is deleted
 
         Hobby newHobby = new Hobby("Paintball", Category.OUTDOOR );
         hobbyDAO.createHobby(newHobby);
-
-
-
-
-        System.out.println(userDAO.getAllUsersInCity(z1));
-        System.out.println(userDAO.getAllZip());
-
 
 
         Users u2 = new Users();
@@ -48,6 +39,7 @@ public class Main {
         u2.addUserInfo(ui2);
         ui2.addContact(c2);
         u2.addHobbies(h2);
+        u2.addAddress(a2);
         a2.addZipcode(z2);
         userDAO.updateUser(u2);
 

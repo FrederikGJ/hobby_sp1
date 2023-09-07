@@ -21,7 +21,8 @@ public class Users {
     private int userId;
 
     // one User only have one userName
-    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL)
+    @OneToOne( cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_info_id") // foreign key
     // bidicrectional -> userInfo is owner. cascade all = delete User also delets UserInfo
     private UserInfo userInfo;
 
