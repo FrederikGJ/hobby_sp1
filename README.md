@@ -19,7 +19,7 @@ daily standup
 google docs
 vi valgte ikke at bruge kanban da projektet var meget kort og havde lille scope 
 
-## tekniske krav    
+## Tekniske krav    
 Vi skulle i projektet bruge JPA, Hibernate og Maven. Samtidig skulle vi bruge en database Postgres.
 Vi har ikke nogen frontend på projektet, så der er pt ingen brugergrænseflade. Programmeringssproget er Java. 
 Vi har Lombok i vores projekt, som gør det nemmere at 
