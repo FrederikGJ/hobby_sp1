@@ -3,7 +3,12 @@
 ## Business idea
 En app hvor man kan finde og møde andre mennesker med de samme hobbyer som man selv har. 
 Appen skal indeholde de forskellige hobbyer og have dem delt ind i kategorier som fx vandsport. 
-Hvilket før det nemmere for en bruger, at blive inspireret af andre brugeres hobbyer. 
+Hvilket før det nemmere for en bruger, at blive inspireret af andre brugeres hobbyer
+
+Ideer til videre udvikling:
+Events - både faste og andre
+Vi kan have målrettede reklamer 
+
 
 ## Domain Model
 ![img.png](img.png)
