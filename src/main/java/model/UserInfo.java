@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,6 +21,24 @@ public class UserInfo {
     @Column (name = "user_name", length = 100)
     private String userName;
 
+    @Temporal (TemporalType.TIMESTAMP)
+    @Column (name ="created_date", nullable = false)
+    private LocalDateTime createdDate;
+
+    @Temporal (TemporalType.TIMESTAMP)
+    @Column (name ="updated_date", nullable = false)
+    private LocalDateTime updatedDate;
+    @PrePersist // This method will be called before the entity is persisted -  does not require manual intervention when UserInfo is changed
+    protected void onCreate() {
+        LocalDateTime date = LocalDateTime.now();
+        this.createdDate = date;
+        this.updatedDate = date;
+    }
+    @PreUpdate // This metothos will be called before the entity is updated and merged -  does not require manual intervention when UserInfo is changed
+    protected void onUpdate() {
+        this.updatedDate = LocalDateTime.now();
+    }
+
     @OneToOne
    //@JoinColumn(name= "user_info_id") //Defines the foreign key column
     private Users users;
@@ -27,6 +46,12 @@ public class UserInfo {
     // One userName can have multiple ways of contact (private tlf, work tlf)
     @OneToMany (mappedBy = "userInfo", cascade = CascadeType.ALL, orphanRemoval = true)// bidirectional- Contact is owner. cascade = userInfo changes then Contact changes removal = orphaned Contacts are removed
     private Set<Contact> contactList = new HashSet<>();
+
+    public UserInfo(String userName, LocalDateTime createdDate, LocalDateTime updatedDate) {
+        this.userName = userName;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+    }
 
     public UserInfo(String userName) {
         this.userName = userName;

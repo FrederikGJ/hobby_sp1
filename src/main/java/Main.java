@@ -2,6 +2,8 @@ import dao.HobbyDAO;
 import dao.UserDAO;
 import model.*;
 
+import java.time.LocalDateTime;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -9,7 +11,7 @@ public class Main {
         HobbyDAO hobbyDAO = HobbyDAO.getInstance();
 
         Users u1 = new Users();
-        UserInfo ui1 = new UserInfo("Signe");
+        UserInfo ui1 = new UserInfo("Signe", LocalDateTime.now(), LocalDateTime.now());
         Contact c1 = new Contact(30294785);
         Hobby h1 = new Hobby("Svømning", Category.INDOOR);
         Address a1 = new Address("Mosevej", 3);
@@ -42,8 +44,6 @@ public class Main {
         u2.addAddress(a2);
         a2.addZipcode(z2);
         userDAO.updateUser(u2);
-
-
 
     }
 }

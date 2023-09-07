@@ -20,6 +20,7 @@ public class Users {
     @Column(name = "user_id", nullable = false)
     private int userId;
 
+
     // one User only have one userName
     @OneToOne( cascade = CascadeType.ALL)
     @JoinColumn(name = "user_info_id") // foreign key
