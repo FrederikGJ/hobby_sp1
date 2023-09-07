@@ -6,10 +6,13 @@ Appen skal indeholde de forskellige hobbyer og have dem delt ind i kategorier so
 Hvilket før det nemmere for en bruger, at blive inspireret af andre brugeres hobbyer. 
 
 ## Domain Model
-indsæt domæne model 
+![img.png](img.png)
 
 ## EE-diagram
-indsæt EE-diagram
+
+
+
+
 
 ## Grupeparbejdet
 Vi startede arbejdet med at lave et domænediagram. Det hjalp os til at få et overblik over projektet. 
