@@ -4,6 +4,8 @@
 Forestil dig en platform, der ikke kun giver dig information om folk og deres fritidsinteresser, men som også forbinder dig med ligesindede i dit lokale område. 
 Vores ide er at skabe en app, hvor brugere kan indtaste deres hobbyer, oplysninger og interesser, og på platformen kan de finde ligesindede. 
 
+Vores forretningside er bygget op omkring fire søjler: 
+
 Kategorisering af hobbyer: For at gøre det nemmere for brugerne at finde ligesindede, vil appen kategorisere hobbyer, fx under "vandsport", "kunst", "musik" osv.
 
 Sociale netværksmuligheder: Ud over at finde personer med lignende interesser, tilføjer vi en social networking dimension, så brugere kan interagere og dele erfaringer.
