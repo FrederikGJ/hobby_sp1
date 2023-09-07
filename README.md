@@ -1,14 +1,17 @@
 # SP 01 - 3. semester 
 
 ## Business idea
-En app hvor man kan finde og møde andre mennesker med de samme hobbyer som man selv har. 
-Appen skal indeholde de forskellige hobbyer og have dem delt ind i kategorier som fx vandsport. 
-Hvilket før det nemmere for en bruger, at blive inspireret af andre brugeres hobbyer
+Forestil dig en platform, der ikke kun giver dig information om folk og deres fritidsinteresser, men som også forbinder dig med ligesindede i dit lokale område. 
+Vores ide er at skabe en app, hvor brugere kan indtaste deres hobbyer, oplysninger og interesser, og på platformen kan de finde ligesindede. 
 
-Ideer til videre udvikling:
-Events - både faste og andre
-Vi kan have målrettede reklamer 
+Kategorisering af hobbyer: For at gøre det nemmere for brugerne at finde ligesindede, vil appen kategorisere hobbyer, fx under "vandsport", "kunst", "musik" osv.
 
+Sociale netværksmuligheder: Ud over at finde personer med lignende interesser, tilføjer vi en social networking dimension, så brugere kan interagere og dele erfaringer.
+
+Events: Vi kan introducere en funktion, hvor brugere kan oprette eller deltage i events relateret til deres hobbyer. Dette kunne være faste begivenheder, som fx ugentlige løbeklubber, eller engangsarrangementer som en fodboldkamp i den lokale park. 
+
+Målrettede reklamer: For at sikre den økonomiske bæredygtighed af platformen kan vi tilbyde målrettede reklamer. 
+Med den dybe indsigt vi får i brugernes hobbyer, kan vi præsentere dem for relevante produkter eller tjenester, hvilket øger sandsynligheden for salg.
 
 ## Domain Model
 ![img.png](img.png)
