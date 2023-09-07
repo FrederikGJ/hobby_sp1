@@ -60,6 +60,7 @@ public class HobbyDAO {
         }
     }
 
+
     public int getNumberOfPeopleWithHobby (String hobby) {
         try(EntityManager em = emf.createEntityManager()) {
             TypedQuery<Users> users = em.createQuery("SELECT u FROM Users u JOIN u.hobbies h WHERE h.hobbyName = :hobby", Users.class);
@@ -73,6 +74,8 @@ public class HobbyDAO {
             return count;
         }
     }
+
+
 
     public List<Hobby> getAllHobbies () {
         try(EntityManager em = emf.createEntityManager()) {

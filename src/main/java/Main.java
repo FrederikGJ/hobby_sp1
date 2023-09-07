@@ -29,14 +29,14 @@ public class Main {
         Hobby newHobby = new Hobby("Paintball", Category.OUTDOOR );
         hobbyDAO.createHobby(newHobby);
 
+        Users u4 = new Users();
+        UserInfo ui4 = new UserInfo("Hans");
+        Contact c4 = new Contact(21212121);
+        Hobby h4 = new Hobby("Sove", Category.INDOOR);
+        Address a4 = new Address("Polensgade", 30);
+        Zipcode z4 = new Zipcode(2300, "København", "Hovedstaden", "Københavns kommune");
 
-        Users u2 = new Users();
-        UserInfo ui2 = new UserInfo("Natasja");
-        Contact c2 = new Contact(20202020);
-        Hobby h2 = new Hobby("Sove", Category.INDOOR);
-        Address a2 = new Address("Polensgade", 30);
-        Zipcode z2 = new Zipcode(2300, "København", "Hovedstaden", "Københavns kommune");
-
+        /*
         userDAO.createUser(u2);
         u2.addUserInfo(ui2);
         ui2.addContact(c2);
@@ -44,6 +44,8 @@ public class Main {
         u2.addAddress(a2);
         a2.addZipcode(z2);
         userDAO.updateUser(u2);
+        
+         */
 
         System.out.println(userDAO.getAllZip());
 

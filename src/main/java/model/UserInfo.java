@@ -18,6 +18,7 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_info_id", nullable = false)
     private int userInfoId;
+
     @Column (name = "user_name", length = 100)
     private String userName;
 
@@ -33,14 +34,14 @@ public class UserInfo {
         LocalDateTime date = LocalDateTime.now();
         this.createdDate = date;
         this.updatedDate = date;
+
     }
-    @PreUpdate // This metothos will be called before the entity is updated and merged -  does not require manual intervention when UserInfo is changed
+    @PreUpdate // This methods will be called before the entity is updated and merged -  does not require manual intervention when UserInfo is changed
     protected void onUpdate() {
         this.updatedDate = LocalDateTime.now();
     }
 
     @OneToOne
-   //@JoinColumn(name= "user_info_id") //Defines the foreign key column
     private Users users;
 
     // One userName can have multiple ways of contact (private tlf, work tlf)
