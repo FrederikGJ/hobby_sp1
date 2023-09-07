@@ -14,7 +14,7 @@ Vi kan have målrettede reklamer
 ![img.png](img.png)
 
 ## EE-diagram
-
+![eer_sp01_3semester.png](..%2F..%2F..%2F..%2F..%2FDesktop%2FRandomized%20Controlled%20Trial%2Feer_sp01_3semester.png)
 
 
 
