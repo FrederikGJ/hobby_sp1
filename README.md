@@ -20,7 +20,7 @@ Først da vi havde en fælles kodebase med entitier og relationer gik vi i gang 
 Her delte vi projektets forskellige userstories ud på gruppemedlemmerne, men havde selvfølgelig mulighed for at spørge om hjælp hos hinanden.
 Vi mødtes fysisk mandag, onsdag og torsdag. Da vi i gruppen finder det nemmere at arbejde som team, når vi er fysisk til stede på samme matrikel. Tirsdag arbejdede vi hjemme fra. 
 De dage vi mødtes afholdt vi daily standup, sådan at vi var med på hvad alle i gruppen arbejdede på og hvilke udfordringer der var med opgaverne. 
-På den måde kunne vi hjælpe hinanden og få sparring på de opgaver vi arbejdede med. 
+På den måde kunne vi hjælpe hinanden, og få sparring på de opgaver vi arbejdede med. 
 Til løbende dokumentation valgte vi google docs. Vi valgte ikke at bruge kanban (Trello), da projektet var meget kort og havde et ret lille scope. 
 
 ## tekniske krav    
