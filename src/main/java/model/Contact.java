@@ -25,5 +25,8 @@ public class Contact {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Contact phonenumber: " + phonenumber + "\n";
+    }
 }
