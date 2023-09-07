@@ -98,13 +98,22 @@ public class UserDAO {
         }
     }
 
-    public List<Contact> getUserContacts(Integer userId){
-        try(EntityManager em = emf.createEntityManager()){
-            TypedQuery<Contact> contacts = em.createQuery("SELECT c FROM Contact c JOIN Users u ON u.userInfo = c.userInfo WHERE u.userId = :userId", Contact.class);
+    public List<Integer> getUserContacts(Integer userId) {
+        try(EntityManager em = emf.createEntityManager()) {
+            TypedQuery<Integer> contacts = em.createQuery(
+                    "SELECT c.phonenumber " +
+                            "FROM Users u " +
+                            "JOIN u.userInfo ui " +
+                            "JOIN ui.contactList c " +
+                            "WHERE u.userId = :userId",
+                    Integer.class
+            );
             contacts.setParameter("userId", userId);
             return contacts.getResultList();
         }
     }
+
+
 
 
 }

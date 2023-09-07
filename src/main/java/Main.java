@@ -47,7 +47,7 @@ public class Main {
 
         System.out.println(userDAO.getAllContacts());
 
-        System.out.println(" look at this number:  " + userDAO.getUserContacts(98));
+        System.out.println(" look at this number:  " + userDAO.getUserContacts(129));
 
 
 
