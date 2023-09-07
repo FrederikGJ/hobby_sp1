@@ -34,8 +34,9 @@ public class UserInfo {
         LocalDateTime date = LocalDateTime.now();
         this.createdDate = date;
         this.updatedDate = date;
+
     }
-    @PreUpdate // This metothos will be called before the entity is updated and merged -  does not require manual intervention when UserInfo is changed
+    @PreUpdate // This methods will be called before the entity is updated and merged -  does not require manual intervention when UserInfo is changed
     protected void onUpdate() {
         this.updatedDate = LocalDateTime.now();
     }
