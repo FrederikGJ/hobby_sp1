@@ -17,11 +17,11 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_info_id", nullable = false)
     private int userInfoId;
+
     @Column (name = "user_name", length = 100)
     private String userName;
 
     @OneToOne
-   //@JoinColumn(name= "user_info_id") //Defines the foreign key column
     private Users users;
 
     // One userName can have multiple ways of contact (private tlf, work tlf)

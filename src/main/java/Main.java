@@ -2,6 +2,8 @@ import dao.HobbyDAO;
 import dao.UserDAO;
 import model.*;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -42,6 +44,10 @@ public class Main {
         u2.addAddress(a2);
         a2.addZipcode(z2);
         userDAO.updateUser(u2);
+
+        System.out.println(userDAO.getAllContacts());
+
+        System.out.println("looki look   " + userDAO.getUserContacts(92));
 
 
 
